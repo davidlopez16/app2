@@ -24,17 +24,14 @@ class AutorsController < ApplicationController
   # POST /autors
   # POST /autors.json
   def create
-    @autor = Autor.new(autor_params)
+    @autor = Autor.new(nombre: params[:autor][:nombre], apellido: params[:autor][:apellido])
 
-    respond_to do |format|
       if @autor.save
-        format.html { redirect_to @autor, notice: 'Autor was successfully created.' }
-        format.json { render :show, status: :created, location: @autor }
+        redirect_to @autor
       else
-        format.html { render :new }
-        format.json { render json: @autor.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
+    
   end
 
   # PATCH/PUT /autors/1

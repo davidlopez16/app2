@@ -1,14 +1,6 @@
-<%= form_for(autor) do |f| %>
-  <% if autor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(autor.errors.count, "error") %> prohibited this autor from being saved:</h2>
-
-      <ul>
-      <% autor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= form_for(@autor) do |f| %>
+  <% @autor.errors.full_messages.each do |message| %>
+      <%= message %>
   <% end %>
 
 <div class="col-lg-6">
@@ -29,6 +21,7 @@
     <%= f.submit class:"btn btn-round btn-success fa fa-trash-o fa-lg" %>
   </div>
 </div>
+<%end%>
 
     
     
