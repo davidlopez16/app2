@@ -22,8 +22,12 @@ class ProyectsController < ApplicationController
 
   def create
     @proyect = Proyect.new(proyect_params)
-    flash[:notice] = 'Proyect was successfully created.' if @proyect.save
-    respond_with(@proyect)
+    if @proyect.save
+        redirect_to @proyect
+        flash[:notice] = 'Proyecto guardado Exitosamente!.'
+      else
+        render :new
+      end
   end
 
   def update
