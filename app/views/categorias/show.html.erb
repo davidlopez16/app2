@@ -1,0 +1,32 @@
+
+
+<div class="right_col" role="main">
+              
+<p id="notice"><%= notice %></p>
+
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td><%= @categoria.carrera %></td>
+                          <
+                          <td><%= link_to 'EDITAR', edit_categoria_path(@categoria), class: "btn btn-round btn-primary fa fa-edit" %> |
+                              <%= link_to 'ATRAS', categorias_path, class: "btn btn-round btn-warning fa fa-trash-o fa-lg" %></td>
+                        </tr>
+                        
+                       
+                      </tbody>
+                    </table>
+
+                  
+                  
+                      </div>

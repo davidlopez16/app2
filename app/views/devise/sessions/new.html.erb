@@ -6,43 +6,40 @@
 		
 		
  <div class="animate form login_form">
-          <section class="login_content">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <h1>Login Form</h1>
-              <div>
-                 <%= f.email_field :email, class:"form-control", placeholder:"Username", autofocus: true %>
-              </div>
-              <div>
-                <%= f.password_field :password,  class:"form-control", placeholder:"Password", autocomplete: "off" %>
-              </div>
-               <% if devise_mapping.rememberable? -%>
-    
 
-                 <div class="form-group text-center">
-             <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me, type:"checkbox", tabindex:"3", class:"", name:"remember" %>
-                </div>
-              <% end %>
-              <div>
-                <%= f.submit "Iniciar sesión", class:"btn btn-default submit" %>
-                <a class="reset_pass" href="#">Lost your password?</a>
-              </div>
+          
+          
+          
+<fieldset>
+    <legend>Iniciar sesión</legend>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-              <div class="clearfix"></div>
+  <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control', require: '' %>
+  </div>
 
-              <div class="separator">
-                <p class="change_link">New to site?
-                  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-                </p>
+  <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autofocus: true, class: 'form-control', require: '' %>
+  </div>
 
-                <div class="clearfix"></div>
-                <br />
-           <%= render "devise/shared/links" %>
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
-            <% end %>
-          </section>
-        </div>		
+
+  <% if devise_mapping.rememberable? -%>
+  <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label "Recordarme" %>
+    </div>
+  <% end -%>
+
+  <div class="form-group">
+    <%= button_tag(type: 'submit', class: "btn btn-success btn-block") do %>
+      <span class="glyphicon glyphicon-log-in"></span> Entrar
+    <% end %>
+  </div>
+<%= render "devise/shared/links" %>
+  </fieldset>
+<% end %>
+</div>
+
+        	
